@@ -1,5 +1,20 @@
+# 環境構築
+
+```
+$ cd program-puzzle-ts
+$ npm install
+```
+
+# テスト実行方法
+
+```bash
+$ cd program-puzzle-ts
+$ npx jest --watch # 勝手に見張ってくれる
+```
 
 # typescript実行
+
+(上述のテストを実施するので、今後作成分は不要)
 
 - 個別にビルド&実行する方法
 
