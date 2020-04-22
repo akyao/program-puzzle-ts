@@ -4,8 +4,12 @@ export default class StringNumberMap {
     values: Array<number>  = [];
 
     public put(key:string, value:number) {
-        this.keys.push(key);
-        this.values.push(value);
+        if (this.contains(key)) {
+            this.values[this.keys.indexOf(key)] = value;
+        } else {
+            this.keys.push(key);
+            this.values.push(value);
+        }
     }
 
     public get(key:string): number | null{
@@ -17,11 +21,17 @@ export default class StringNumberMap {
         return this.keys.indexOf(key) >= 0;
     }
 
-    public entrySet(): Array<[string, number]> {
-        let result: Array<[string, number]> = [];
+    public entrySet(): Array<Entry> {
+        let result: Array<Entry> = [];
         for (let i = 0; i < this.keys.length; i++) {
-            result.push([ this.keys[i], this.values[i] ]);
+            result.push(new Entry(this.keys[i], this.values[i]));
         }
         return result;
     }
 }
+
+export class Entry {
+    constructor(public key: string, public value: number){}
+}
+
+new Entry("a", 1);

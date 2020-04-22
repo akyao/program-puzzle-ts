@@ -1,4 +1,5 @@
-import StringNumberMap from '../stringNumberMap';
+import StringNumberMap, { Entry } from '../stringNumberMap';
+// import構文わかりにくいな
 
 let sut: StringNumberMap;
 
@@ -23,7 +24,7 @@ test('one map', () => {
   expect(sut.get("test"))
     .toEqual(10);
   expect(sut.entrySet())
-    .toStrictEqual([["test", 10]]);
+    .toStrictEqual([new Entry("test", 10)]);
 });
 
 test('two map', () => {
@@ -49,5 +50,17 @@ test('two map', () => {
     .toEqual(12);
 
   expect(sut.entrySet())
-    .toStrictEqual([["test1", 11], ["test2", 12]]);
+    .toStrictEqual([new Entry("test1", 11), new Entry("test2", 12)]);
+});
+
+test('putは上書き', () => {
+  sut.put("test", 10);
+  sut.put("test", 20);
+
+  expect(sut.contains("test"))
+    .toEqual(true);
+  expect(sut.get("test"))
+    .toEqual(20);
+  expect(sut.entrySet())
+    .toStrictEqual([new Entry("test", 20)]);
 });
