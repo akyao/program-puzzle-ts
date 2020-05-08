@@ -5,13 +5,13 @@
  * a + b + cの計算結果と、文字列sを並べて表示しなさい。
  */
 
- /**
-  * a
-  * b c
-  * s
-  */
+/**
+ * a
+ * b c
+ * s
+ */
 export function Main(input: string) {
-	// 問題文解体エリア
+  // 問題文解体エリア
   const inputs = input.split("\n");
   const inputLine2 = inputs[1].split(" ");
   const a: number = new Number(inputs[0]).valueOf();
@@ -19,11 +19,11 @@ export function Main(input: string) {
   const c: number = new Number(inputLine2[1]).valueOf();
   const s: string = inputs[2];
 
-	// 問題解決エリア
-  const answer = fuck(a, b ,c, s);
-  
+  // 問題解決エリア
+  const answer = fuck(a, b, c, s);
+
   //出力エリア
-	console.log('%d %s',answer[0], answer[1]);
+  console.log('%d %s', answer[0], answer[1]);
 }
 
 
@@ -31,6 +31,6 @@ export function Main(input: string) {
 // 提出する時にコメントアウト解除せよ
 // Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 
-export function fuck(a: number, b:number, c:number , s:string): [ number, string] {
-  return [a+b+c, s];
+export function fuck(a: number, b: number, c: number, s: string): [number, string] {
+  return [a + b + c, s];
 }
