@@ -1,4 +1,5 @@
 /**
+ * https://atcoder.jp/contests/abc169/tasks/abc169_a
  * A × B を求めてください。
  */
 export function Main(input: string) {
